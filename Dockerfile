@@ -2,7 +2,8 @@
 FROM golang:1.18-alpine AS builder
 WORKDIR /app
 COPY . .
-RUN go mod tidy
+RUN cd /app/golangrepo
+RUN go mod init golangrepo
 RUN go build -o main .
 
 # Step 2: Create a small image with the Go binary
